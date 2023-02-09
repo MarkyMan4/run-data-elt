@@ -1,0 +1,7 @@
+[
+    {
+        "entity": "t_test",
+        "path": "test_data/test.csv",
+        "keys": ["val1"]
+    }
+]

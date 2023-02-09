@@ -5,3 +5,25 @@ environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  extractors:
+  - name: tap-strava
+    variant: dluftspring
+    pip_url: git+https://github.com/dluftspring/tap-strava.git
+    config:
+      start_date: '2022-11-24'
+  - name: tap-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+    config:
+      csv_files_definition: test_data/test_def.json
+  loaders:
+  - name: target-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/target-postgres.git
+    config:
+      host: localhost
+      port: 5432
+      user: run_data_user
+      database: running
+      default_target_schema: public

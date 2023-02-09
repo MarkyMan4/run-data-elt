@@ -1,0 +1,61 @@
+{
+  "plugin_type": "extractors",
+  "name": "tap-strava",
+  "namespace": "tap_strava",
+  "variant": "dluftspring",
+  "label": "Strava",
+  "docs": "https://hub.meltano.com/extractors/tap-strava--dluftspring",
+  "repo": "https://github.com/dluftspring/tap-strava",
+  "pip_url": "git+https://github.com/dluftspring/tap-strava.git",
+  "description": "Fitness Social Network",
+  "logo_url": "https://hub.meltano.com/assets/logos/extractors/strava.png",
+  "capabilities": [
+    "catalog",
+    "state",
+    "discover",
+    "about",
+    "stream-maps",
+    "schema-flattening"
+  ],
+  "settings_group_validation": [
+    [
+      "client_id",
+      "client_secret",
+      "refresh_token",
+      "start_date",
+      "end_date"
+    ]
+  ],
+  "settings": [
+    {
+      "name": "client_id",
+      "kind": "password",
+      "label": "Client ID",
+      "description": "Your Strava application unique identifier."
+    },
+    {
+      "name": "client_secret",
+      "kind": "password",
+      "label": "Client Secret",
+      "description": "Your Strava client secret."
+    },
+    {
+      "name": "refresh_token",
+      "kind": "password",
+      "label": "Refresh Token",
+      "description": "Your Strava refresh token. Requires at minimum `activity:read` permissions."
+    },
+    {
+      "name": "start_date",
+      "kind": "date_iso8601",
+      "label": "Start Date",
+      "description": "The date to start pulling data from. (Optional)"
+    },
+    {
+      "name": "end_date",
+      "kind": "date_iso8601",
+      "label": "End date",
+      "description": "The date to stop pulling data from. (Optional)"
+    }
+  ]
+}
