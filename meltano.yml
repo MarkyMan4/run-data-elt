@@ -7,16 +7,28 @@ environments:
 - name: prod
 plugins:
   extractors:
-  - name: tap-strava
-    variant: dluftspring
-    pip_url: git+https://github.com/dluftspring/tap-strava.git
-    config:
-      start_date: '2022-11-24'
   - name: tap-csv
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
     config:
       csv_files_definition: test_data/test_def.json
+  - name: tap-strava
+    variant: dluftspring
+    pip_url: git+https://github.com/dluftspring/tap-strava.git
+    config:
+      start_date: '2022-11-24'
+    select:
+    - activities.distance
+    - activities.start_date
+    - activities.average_speed
+    - activities.calories
+    - activities.elapsed_time
+    - activities.elev_high
+    - activities.elev_low
+    - activities.max_speed
+    - activities.moving_time
+    - activities.name
+    - activities.total_elevation_gain
   loaders:
   - name: target-postgres
     variant: meltanolabs
@@ -27,3 +39,4 @@ plugins:
       user: run_data_user
       database: running
       default_target_schema: public
+      add_metadata_columns: true
