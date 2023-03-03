@@ -40,3 +40,9 @@ plugins:
       database: running
       default_target_schema: public
       add_metadata_columns: true
+  - name: target-duckdb
+    variant: jwills
+    pip_url: target-duckdb~=0.4
+    config:
+      filepath: database/activity.duckdb
+      default_target_schema: main
